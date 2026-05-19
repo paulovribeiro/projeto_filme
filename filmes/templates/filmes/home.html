@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'filmes/css/dashboard.css' %}">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <header class="top-header">
+        <div class="header-left">
+            <button class="menu-toggle">☰</button>
+            <h1 class="logo">CineInfo</h1>
+        </div>
+
+        <div class="header-right">
+            <div class="user-info">
+                <span class="user-name">Usuário</span>
+                <div class="user-avatar">👤</div>
+            </div>
+        </div>
+    </header>
+
+    <aside class="sidebar">
+
+        <nav class="sidebar-nav">
+
+            <a href="{% url 'filmes:home' %}" class="nav-item active">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+
+            <a href="{% url 'filmes:lista' %}" class="nav-item">
+                <span class="nav-icon">📋</span>
+                <span class="nav-text">Lista de Filmes</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main class="main-content">
+
+        <div class="content-header">
+            <h2 class="page-title">Dashboard</h2>
+            <p class="page-subtitle">Visão geral do catálogo de filmes</p>
+        </div>
+
+        <div class="dashboard-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">🎬</div>
+
+                <div class="stat-info">
+                    <h3 class="stat-label">Total de Filmes</h3>
+                    <p class="stat-value">{{ total_filmes }}</p>
+                    <p class="stat-description">Filmes cadastrados</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⭐</div>
+
+                <div class="stat-info">
+                    <h3 class="stat-label">Últimos Adicionados</h3>
+                    <p class="stat-value">{{ ultimos_filmes }}</p>
+                    <p class="stat-description">Últimos 7 dias</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📁</div>
+
+                <div class="stat-info">
+                    <h3 class="stat-label">Categorias</h3>
+                    <p class="stat-value">{{ categorias }}</p>
+                    <p class="stat-description">Categorias ativas</p>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
